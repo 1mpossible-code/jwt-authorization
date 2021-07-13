@@ -2,9 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/ping', (req, res) => {
-    console.log('Ping server');
-    return res.send('Ping')
+router.post('/register', (req, res) => {
+    res.send('Register');
 })
 
 export default router;
