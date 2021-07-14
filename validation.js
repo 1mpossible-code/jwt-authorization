@@ -6,7 +6,7 @@ export const validateRegistration = data => {
     const schema = Joi.object({
         name: Joi.string().min(6).max(255).required(),
         email: Joi.string().max(255).required().email(),
-        password: Joi.string().max(1024).required(),
+        password: Joi.string().min(8).max(1024).required(),
     });
     // Return the result of validation
     return schema.validate(data);
