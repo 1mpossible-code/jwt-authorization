@@ -41,6 +41,10 @@ router.post('/login', async (req, res) => {
     const {error} = validateLogin(req.body);
     // Send error is has one
     if (error) return res.status(400).send(error.details[0].message);
+
+    // Check if user exists
+    const user = await User.findOne({email: req.body.email});
+    if (!user) return res.status(400).send('Email or password is wrong');
 })
 
 export default router;
