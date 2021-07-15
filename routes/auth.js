@@ -44,7 +44,10 @@ router.post('/login', async (req, res) => {
 
     // Check if user exists
     const user = await User.findOne({email: req.body.email});
-    if (!user) return res.status(400).send('Email or password is wrong');
+    if (!user) return res.status(400).send('Email not found');
+    // Check if the password is valid
+    const passwordIsValid = await bcrypt.compare(req.body.password, user.password);
+    if (!passwordIsValid) return res.status(400).send('Password is invalid');
 })
 
 export default router;
