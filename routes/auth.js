@@ -37,6 +37,10 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    // Validate the data before login
+    const {error} = validateLogin(req.body);
+    // Send error is has one
+    if (error) return res.status(400).send(error.details[0].message);
 })
 
 export default router;
