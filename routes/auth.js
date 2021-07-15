@@ -1,5 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken';
 import User from "../models/User.js";
 import {validateLogin, validateRegistration} from "../validation.js";
 
@@ -48,6 +49,10 @@ router.post('/login', async (req, res) => {
     // Check if the password is valid
     const passwordIsValid = await bcrypt.compare(req.body.password, user.password);
     if (!passwordIsValid) return res.status(400).send('Password is invalid');
+
+    // Create and assign jwt token
+    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    res.header('Authorization', token).send(token);
 })
 
 export default router;
