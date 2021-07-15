@@ -1,33 +1,21 @@
-import User from "../models/User.js";
-import bcrypt from 'bcryptjs'
-import {validateRegistration} from "../validation.js";
+import {createNewUser, hashPassword, validateRegisterData} from "../services/authSerivce.js";
 
 export const store = async (req, res) => {
-    // Validate the data before make a user
-    const {error} = validateRegistration(req.body);
-    // Send error is has one
-    if (error) return res.status(400).send(error.details[0].message);
+    // Get error from validation
+    const error = await validateRegisterData(req.body);
+    // Send error
+    if (error.message) return res.status(400).send(error.message);
 
-    // Check if email is unique
-    const emailExists = await User.findOne({email: req.body.email});
-    if (emailExists) return res.status(400).send('Email already exists');
-
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    // Get hashed password
+    const hashedPassword = await hashPassword(req.body.password);
 
     // Create new user
-    const user = new User({
+    const result = await createNewUser({
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
     });
 
-    // Save user
-    try {
-        const savedUser = await user.save();
-        res.send({user: savedUser._id});
-    } catch (err) {
-        res.status(400).send(err);
-    }
+    // Send result of creating new user
+    res.status(result.status).send(result.payload);
 }
