@@ -1,7 +1,9 @@
 import express from 'express';
-import authRouter from "./routes/auth.js";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+// Import routes
+import authRoutes from "./routes/auth.js";
+import testAuthRoutes from "./routes/testAuth.js";
 
 dotenv.config();
 
@@ -19,8 +21,9 @@ mongoose.connect(process.env.DB_CONNECT, {
 
 // Middleware
 app.use(express.json());
-// Auth routes middleware
-app.use('/api/user', authRouter);
+// Route Middleware
+app.use('/api/user', authRoutes);
+app.use('/api/test', testAuthRoutes);
 
 // Serve server
 app.listen(3000, () => {

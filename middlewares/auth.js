@@ -8,7 +8,7 @@ export default async (req, res, next) => {
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
         req.user = await User.findOne({_id: verified._id});
-        next()
+        next();
     } catch (e) {
         res.status(400).send('Error:', e);
     }
