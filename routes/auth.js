@@ -1,7 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcryptjs'
 import User from "../models/User.js";
-import {validateRegistration} from "../validation.js";
+import {validateLogin, validateRegistration} from "../validation.js";
 
 const router = express.Router();
 
@@ -34,6 +34,9 @@ router.post('/register', async (req, res) => {
     } catch (err) {
         res.status(400).send(err);
     }
+})
+
+router.post('/login', async (req, res) => {
 })
 
 export default router;
