@@ -12,5 +12,6 @@ export const store = async (req, res) => {
 
     // Create and assign jwt token
     const token = await createJwtToken({_id: user._id});
-    res.header('Authorization', `Bearer ${token}`).redirect('/api/test');
+    res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 })
+    res.header('Authorization', `Bearer ${token}`).redirect('/test');
 }
