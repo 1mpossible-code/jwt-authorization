@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 // Import routes
 import authRoutes from "./routes/auth.js";
@@ -24,6 +25,8 @@ mongoose.connect(process.env.DB_CONNECT, {
 app.use(bodyParser.urlencoded({extended: false}));
 // Parse json
 app.use(bodyParser.json());
+// Parse cookie
+app.use(cookieParser());
 // Route Middleware
 app.use('/', authRoutes);
 app.use('/test', testAuthRoutes);
