@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 // Import routes
 import authRoutes from "./routes/auth.js";
@@ -19,8 +20,10 @@ mongoose.connect(process.env.DB_CONNECT, {
     .then(() => console.log('Database connected'))
     .catch((err) => console.error(err));
 
-// Middleware
-app.use(express.json());
+// Parse x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
+// Parse json
+app.use(bodyParser.json());
 // Route Middleware
 app.use('/api/user', authRoutes);
 app.use('/api/test', testAuthRoutes);
