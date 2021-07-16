@@ -15,3 +15,8 @@ export const store = async (req, res) => {
     res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 })
     res.header('Authorization', `Bearer ${token}`).redirect('/test');
 }
+
+export const destroy = async (req, res) => {
+    res.cookie('jwt', 0, {maxAge: 0});
+    res.send('Logged Out');
+}
