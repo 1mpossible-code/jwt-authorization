@@ -8,9 +8,10 @@
 <body>
 <main>
     <section>
-        <h1>User</h1>
-        <% Object.keys(it.user).forEach(function(prop) { %>
-        <div><%= prop %> : <%= it.user[prop] %></div>
+        <h1><%= it.title %></h1>
+        <br>
+        <% Object.keys(it.payload).forEach(function(prop) { %>
+        <div><%= prop %> : <%= it.payload[prop] %></div>
         <% }) %>
     </section>
 </main>
