@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<main>
+    <section>
+        <h1>User</h1>
+        <% Object.keys(it.user).forEach(function(prop) { %>
+        <div><%= prop %> : <%= it.user[prop] %></div>
+        <% }) %>
+    </section>
+</main>
+</body>
+</html>
