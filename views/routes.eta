@@ -11,7 +11,7 @@
 <body>
 <main>
     <section>
-        <h1><%= it.title %></h1>
+        <h1>Routes</h1>
         <br>
         <% it.payload.forEach(function(url){ %>
         <div>
