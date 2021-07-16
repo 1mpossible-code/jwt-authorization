@@ -1,5 +1,9 @@
 import {createNewUser, hashPassword, validateRegisterData} from "../services/authSerivce.js";
 
+export const index = async (req, res) => {
+    res.render('auth/register');
+}
+
 export const store = async (req, res) => {
     // Get error from validation
     const error = await validateRegisterData(req.body);
@@ -17,5 +21,8 @@ export const store = async (req, res) => {
     });
 
     // Send result of creating new user
-    res.status(result.status).send(result.payload);
+    res.status(result.status).render('template', {
+        title: 'User created',
+        payload: result.payload,
+    });
 }

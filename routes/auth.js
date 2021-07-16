@@ -4,6 +4,8 @@ import * as LoginController from "../controllers/loginController.js"
 
 const router = express.Router();
 
+// GET /login Render register page
+router.get('/register', RegisterController.index);
 // POST /register Register user with specified data
 router.post('/register', RegisterController.store);
 
