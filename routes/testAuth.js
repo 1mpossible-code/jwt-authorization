@@ -7,11 +7,12 @@ router.get('/', authMiddleware, async (req, res) => {
     // Get user
     const user = req.user;
     // Send user
-    res.json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        date: user.date,
+    res.render('test', {user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            date: user.date,
+        }
     });
 });
 
