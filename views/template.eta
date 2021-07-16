@@ -13,6 +13,11 @@
         <% Object.keys(it.payload).forEach(function(prop) { %>
         <div><%= prop %> : <%= it.payload[prop] %></div>
         <% }) %>
+        <% if (it.logoutBtn) { %>
+        <form action="/logout" method="GET">
+            <button type="submit">Logout</button>
+        </form>
+        <% } %>
     </section>
 </main>
 </body>

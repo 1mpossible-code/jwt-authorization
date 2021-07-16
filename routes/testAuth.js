@@ -15,6 +15,7 @@ router.get('/', authMiddleware, async (req, res) => {
             email: user.email,
             date: user.date,
         },
+        logoutBtn: true,
     });
 });
 
