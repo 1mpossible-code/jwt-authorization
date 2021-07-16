@@ -19,4 +19,16 @@ router.get('/', authMiddleware, async (req, res) => {
     });
 });
 
+router.get('/routes', async (req, res) => {
+    res.render('routes', {
+        payload: [
+            '/register',
+            '/login',
+            '/logout',
+            '/test',
+            '/test/routes',
+        ],
+    })
+})
+
 export default router;
