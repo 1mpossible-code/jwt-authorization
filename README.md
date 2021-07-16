@@ -4,6 +4,8 @@
 
 Express jwt authorization app created in educational purposes
 
+![](./assets/example.gif)
+
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
