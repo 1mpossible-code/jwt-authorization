@@ -13,5 +13,7 @@ router.post('/register', RegisterController.store);
 router.get('/login', LoginController.index);
 // POST /login Login user
 router.post('/login', LoginController.store);
+// GET /logout Logout user
+router.get('/logout', LoginController.destroy);
 
 export default router;
