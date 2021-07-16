@@ -25,6 +25,11 @@ app.use(express.json());
 app.use('/api/user', authRoutes);
 app.use('/api/test', testAuthRoutes);
 
+// View settings
+app.use(express.static('public'))
+app.set('views', 'views')
+app.set('view engine', 'eta')
+
 // Serve server
 app.listen(3000, () => {
     console.log('Server is running http://localhost:3000/')
