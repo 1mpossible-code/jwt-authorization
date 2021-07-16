@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Parse json
 app.use(bodyParser.json());
 // Route Middleware
-app.use('/api/user', authRoutes);
-app.use('/api/test', testAuthRoutes);
+app.use('/', authRoutes);
+app.use('/test', testAuthRoutes);
 
 // View settings
 app.use(express.static('public'))
