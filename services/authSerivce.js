@@ -12,6 +12,7 @@ export const validateRegisterData = async (data) => {
     // Check if email is unique
     const emailExists = await User.findOne({email: data.email});
     if (emailExists) return {message: 'Email already exists'};
+    return {};
 }
 
 export const validateLoginData = async (data) => {
