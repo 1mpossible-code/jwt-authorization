@@ -30,6 +30,7 @@ app.use(cookieParser());
 // Route Middleware
 app.use('/', authRoutes);
 app.use('/test', testAuthRoutes);
+app.get('/', (req, res) => res.redirect('/test/routes'))
 
 // View settings
 app.use(express.static('public'))
