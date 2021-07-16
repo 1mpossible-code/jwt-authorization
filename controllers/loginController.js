@@ -1,5 +1,9 @@
 import {createJwtToken, validateLoginData} from "../services/authSerivce.js";
 
+export const index = async (req, res) => {
+    res.render('auth/login');
+}
+
 export const store = async (req, res) => {
     // Validate the data before login
     const {message, user} = await validateLoginData(req.body);

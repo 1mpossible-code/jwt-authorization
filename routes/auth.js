@@ -7,6 +7,8 @@ const router = express.Router();
 // POST /register Register user with specified data
 router.post('/register', RegisterController.store);
 
+// GET /login Render login page
+router.get('/login', LoginController.index);
 // POST /login Login user
 router.post('/login', LoginController.store);
 
