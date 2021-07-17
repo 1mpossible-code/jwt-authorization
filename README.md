@@ -38,6 +38,8 @@ git clone https://github.com/1mpossible-code/jwt-authorization
 cd jwt-authorization
 # Install packages
 npm install
+# Copy .env.example and edit it optionally
+cp .env.example .env
 # Compose up
 docker-compose up
 ```
