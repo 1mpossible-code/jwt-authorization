@@ -9,7 +9,7 @@ export default async (req, res, next) => {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
         req.user = await User.findOne({_id: verified._id});
         next();
-    } catch (e) {
-        res.status(400).send('Error:', e);
+    } catch {
+        res.status(400).send('Token is invalid!');
     }
 };
