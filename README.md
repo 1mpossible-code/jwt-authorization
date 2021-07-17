@@ -1,4 +1,4 @@
-# Simple TODO API
+# JWT Authorization API
 
 ![](https://img.shields.io/github/license/1mpossible-code/jwt-authorization?color=green)
 
