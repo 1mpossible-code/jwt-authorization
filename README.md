@@ -1,8 +1,8 @@
-# Simple TODO API
+# JWT Authorization
 
 ![](https://img.shields.io/github/license/1mpossible-code/jwt-authorization?color=green)
 
-Express jwt authorization app created in educational purposes
+Express jwt authorization app created in educational purposes. [Only API.](https://github.com/1mpossible-code/jwt-authorization/tree/api#jwt-authorization-api)
 
 ![](./assets/example.gif)
 
@@ -18,6 +18,8 @@ Express jwt authorization app created in educational purposes
 ## Description
 
 App that implements authorization with [JWT](https://jwt.io/) token.
+
+The front created on the base of [API](https://github.com/1mpossible-code/jwt-authorization/tree/api#jwt-authorization-api).
 
 It uses [bcryptjs](https://www.npmjs.com/package/bcryptjs) to hash and verify passwords,
 [eta](https://www.npmjs.com/package/eta) to render pages, [joi](https://www.npmjs.com/package/joi) to validate data,
