@@ -31,7 +31,7 @@ It uses [bcryptjs](https://www.npmjs.com/package/bcryptjs) to hash and verify pa
 
 ```shell
 # Clone repo
-git clone https://github.com/1mpossible-code/jwt-authorization
+git clone -b api https://github.com/1mpossible-code/jwt-authorization/
 # Cd into it
 cd jwt-authorization
 # Install packages
