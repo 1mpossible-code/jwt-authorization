@@ -1,6 +1,8 @@
 import express from 'express';
 import * as RegisterController from "../controllers/registerController.js"
 import * as LoginController from "../controllers/loginController.js"
+import * as AuthController from "../controllers/authController.js"
+import authMiddleware from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -15,5 +17,8 @@ router.get('/login', LoginController.index);
 router.post('/login', LoginController.store);
 // GET /logout Logout user
 router.get('/logout', LoginController.destroy);
+
+// GET /auth/me
+router.get('/auth/me', authMiddleware, AuthController.index)
 
 export default router;

@@ -59,6 +59,7 @@ POST | /register | {name: String, email: String, password: String} | Register ne
 GET | /login | | Render login page
 POST | /login | {email: String, password: String} | Login user. It will create cookie JWT token. Then redirect to test page
 GET | /logout | | Logout user. Delete token from cookie
+GET | /auth/me | | Get user's data in JSON format: {_id: String, name: String, email: String}
 GET | /test | | Test token if token is invalid or no token at all, else you will see the information of current user
 GET | /test/routes | | Render all routes page
 GET | / | | Redirect to '/test/routes'
