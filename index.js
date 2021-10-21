@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 // Import routes
 import authRoutes from "./routes/auth.js";
 import testAuthRoutes from "./routes/testAuth.js";
@@ -11,6 +12,11 @@ dotenv.config();
 
 // Create express app
 const app = express();
+
+app.use(cors({
+    origin: process.env.CORS_URL,
+    credentials: true,
+}))
 
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECT, {
